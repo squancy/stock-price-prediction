@@ -1,0 +1,1 @@
+Put the directories "ETFs" and "Stocks" here. It can be downloaded from [text](https://www.kaggle.com/datasets/borismarjanovic/price-volume-data-for-all-us-stocks-etfs?resource=download)
