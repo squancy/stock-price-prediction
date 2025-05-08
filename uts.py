@@ -20,9 +20,11 @@ class Utilities:
         for fname in self.get_all_files_in_dir(dir_name):
             try:
                 df = pd.read_csv(fname)
-                if len(df) < 100: continue
+                if len(df) < 300: continue
                 df['Date'] = pd.to_datetime(df['Date'])
                 for nc in self.num_cols:
+                    if (df[nc] == 0).any():
+                        raise Exception("zero price")
                     df[nc] = pd.to_numeric(df[nc])
                 df.drop(columns='OpenInt', inplace=True)
                 df['Date'] = pd.to_datetime(df['Date'])
@@ -33,7 +35,3 @@ class Utilities:
                 pass # ignore invalid/empty files
                 # print(e)
         return dfs
-
-utils = Utilities(is_test=IS_TEST, test_num=TEST_NUM)
-etf_dfs = utils.get_dataframes('data/ETFs')
-stock_dfs = utils.get_dataframes('data/Stocks') 
