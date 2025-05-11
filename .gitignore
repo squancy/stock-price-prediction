@@ -1,3 +1,4 @@
 data/ETFs
 data/Stocks
 __pycache__
+.venv

@@ -2,9 +2,6 @@ from os import listdir
 from os.path import isfile, join
 import pandas as pd
 
-IS_TEST = True
-TEST_NUM = 100
-
 class Utilities:
     def __init__(self, is_test, test_num):
         self.is_test = is_test
